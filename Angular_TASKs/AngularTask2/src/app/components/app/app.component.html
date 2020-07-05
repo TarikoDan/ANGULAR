@@ -1,0 +1,17 @@
+<div class="content">
+  <div>
+    <app-user *ngFor="let user of users" [user]="user"></app-user>
+  </div>
+  <div class="columns">
+    <button (click)="toggleShowAllPosts()">SHOW ALL POSTS</button>
+    <div *ngIf="isPostShown">
+      <app-post *ngFor="let post of posts" [post]="post"></app-post>
+    </div>
+  </div>
+  <div class="columns">
+    <button (click)="toggleShowAllComments()">SHOW ALL COMMENTS</button>
+    <div *ngIf="isCommentsShown">
+      <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
+    </div>
+  </div>
+</div>

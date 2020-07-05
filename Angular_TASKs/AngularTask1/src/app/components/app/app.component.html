@@ -1,0 +1,10 @@
+<!--{{users[0].name}}-->
+<div class="content">
+  <div>
+    <app-user *ngFor="let user of users" [user]="user" ></app-user>
+  </div>
+  <div>
+    <app-post *ngFor="let post of posts" [post]="post"></app-post>
+  </div>
+
+</div>
