@@ -8,13 +8,10 @@ import {UserService} from '../../services/user.service';
   styleUrls: ['./allUsers.component.css']
 })
 export class AllUsersComponent implements OnInit {
-  // @Input()
-  // user: User;
   users: User[];
   constructor(private  userService: UserService) {
     this.userService.getUsers().subscribe(resp => this.users = resp);
   }
-
   ngOnInit(): void {
   }
 
