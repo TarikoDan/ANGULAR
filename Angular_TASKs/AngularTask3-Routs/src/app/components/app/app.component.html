@@ -1,8 +1,9 @@
 <ul>
+  <li><a routerLink="/home">HOME</a></li>
   <li><a routerLink="/users">USERs</a></li>
   <li><a>POSTs</a></li>
   <li>COMMENTs</li>
 </ul>
-<app-user *ngFor="let user of users" [user]="user"></app-user>
+<!--<app-user *ngFor="let user of users" [user]="user"></app-user>-->
 
 <router-outlet></router-outlet>

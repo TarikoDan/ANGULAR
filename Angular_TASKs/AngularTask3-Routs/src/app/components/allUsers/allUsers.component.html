@@ -1,0 +1,4 @@
+<h6 *ngFor="let user of users">
+  {{user | json}}
+  <button><a routerLink="{{user.id}}">SHOW Details</a></button>
+</h6>
