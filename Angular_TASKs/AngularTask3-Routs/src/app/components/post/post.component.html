@@ -2,3 +2,7 @@
 <h4>Post#{{post?.id}} - {{post?.title}}</h4>
 <h5>{{post?.body}}</h5>
 <p>{{post | json}}</p>
+<button (click)="showComments()" routerLink="comments/{{post?.id}}">{{isCommentsShown ? "Hide Comments" : "Show Comments to this Post"}}</button>
+<div *ngIf="isCommentsShown">
+  <router-outlet></router-outlet>
+</div>

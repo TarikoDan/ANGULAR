@@ -1,0 +1,4 @@
+<h5 *ngFor="let comment of comments">
+  {{comment | json}}
+  <button routerLink="/comments/{{comment.id}}">Show Details</button>
+</h5>

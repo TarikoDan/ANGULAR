@@ -11,8 +11,8 @@ export class ResolvePostsService implements Resolve<Post[]>{
 
   constructor(private postService: PostService) { }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Post[]> | Promise<Post[]> | Post[] {
-    if (!!route.params.id) {
-      return this.postService.getPostsByUserId(route.params.id);
+    if (!!route.params.UserId) {
+      return this.postService.getPostsByUserId(route.params.UserId);
     }else {
       return this.postService.getAllPosts();
     }

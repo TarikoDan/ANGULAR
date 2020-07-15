@@ -10,10 +10,14 @@ import {Post} from '../../models/Post';
 })
 export class PostComponent implements OnInit {
   post: Post;
+  isCommentsShown = false;
   constructor(private activatedRoute: ActivatedRoute, private postService: PostService) {
     this.activatedRoute.params.subscribe(value => {
       this.postService.getPostById(value.postId).subscribe(resp => this.post = resp);
     });
+  }
+  showComments(): void {
+    this.isCommentsShown = !this.isCommentsShown;
   }
 
   ngOnInit(): void {
