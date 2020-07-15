@@ -2,5 +2,9 @@
 <h3>{{user?.username}}</h3>
 <h5>{{user?.id}} - {{user?.name}} - {{user?.email}}</h5>
 <p>{{user | json}}</p>
-<button routerLink="posts" (click)="showPosts()">{{isPostShown? "HIDE User's Posts" : "SHOW User's Posts"}}</button>
-<div *ngIf="isPostShown"></div>
+<button routerLink="posts/{{user.id}}" (click)="showPosts()">{{isPostShown? "HIDE User's Posts" : "SHOW User's Posts"}}</button>
+<div *ngIf="isPostShown">
+  <router-outlet></router-outlet>
+</div>
+
+

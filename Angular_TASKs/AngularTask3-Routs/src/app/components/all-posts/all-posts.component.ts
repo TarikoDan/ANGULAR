@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Post} from '../../models/Post';
-import {PostService} from '../../services/post.service';
+import {PostService} from '../../services/post/post.service';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -10,14 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class AllPostsComponent {
   posts: Post[];
-  constructor(private activatedRoute: ActivatedRoute, private postService: PostService) {
-    this.activatedRoute.params.subscribe(data => {
-      if (data.id) {
-        this.postService.getPostsByUserId(data.id).subscribe(resp => this.posts = resp);
-      }else {
-        this.postService.getAllPosts().subscribe(resp => this.posts = resp);
-      }
-    });
+  constructor(private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.data.subscribe(value => this.posts = value.posts);
   }
-
 }

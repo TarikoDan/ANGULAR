@@ -7,18 +7,22 @@ import {HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
 import {UserComponent} from './components/user/user.component';
 import { AllPostsComponent } from './components/all-posts/all-posts.component';
-import {PostService} from './services/post.service';
 import { PostComponent } from './components/post/post.component';
-import { PostsOfUserComponent } from './components/posts-of-user/posts-of-user.component';
+import {ResolvePostsService} from './services/post/resolve-posts.service';
+import {resolve} from '@angular/compiler-cli/src/ngtsc/file_system';
+import {ResolveUserService} from './services/user/resolve-user.service';
 
 const routes: Routes =  [
   {path: 'home', component: AppComponent},
   {path: 'users', component: AllUsersComponent},
-  {path: 'users/:id', component: UserComponent},
-  {path: 'posts', component: AllPostsComponent},
+  {
+    path: 'users/:id', component: UserComponent,
+    children: [{path: 'posts/:id', component: AllPostsComponent, resolve: {posts: ResolvePostsService}}],
+    resolve: {user: ResolveUserService}
+  },
+  {path: 'posts', component: AllPostsComponent, resolve: {posts: ResolvePostsService}},
   {path: 'posts/:postId', component: PostComponent},
-  // {path: 'users/:id/posts', component: PostsOfUserComponent},
-  {path: 'users/:id/posts', component: AllPostsComponent},
+  // {path: 'users/:id/posts', component: AllPostsComponent},
 ];
 
 @NgModule({
@@ -28,7 +32,6 @@ const routes: Routes =  [
     UserComponent,
     AllPostsComponent,
     PostComponent,
-    PostsOfUserComponent
   ],
   imports: [
     BrowserModule,
