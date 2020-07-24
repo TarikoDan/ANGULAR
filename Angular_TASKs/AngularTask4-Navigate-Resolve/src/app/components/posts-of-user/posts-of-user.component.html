@@ -4,10 +4,11 @@
       <h3>Post: {{post.id}} - {{post.title}}</h3>
       {{post.body}}
       <h6>UserId: {{post.userId}}</h6>
-      <button (click)="showComments(post?.id)">Show Comments to this Post</button>
+      <button (click)="showComments(post.id)">Show Comments to this Post</button>
     </div>
   </div>
   <div id="comments">
-    <router-outlet>there are Comments bellow</router-outlet>
+    {{isCommentsShown ? 'there are Comments bellow' : 'there should be comments to the Post. Choose one'}}
+    <router-outlet></router-outlet>
   </div>
 </div>
