@@ -1,10 +1,12 @@
-<h2>id:{{user?.id}} -- {{user?.name}}</h2>
-{{user | json}}
-<!--{{user?.username}}-->
-<!--{{user?.email}}-->
-<!--{{user?.address | json}}-->
-<!--{{user?.phone}}-->
-<!--{{user?.website}}-->
-<!--{{user?.company | json}}-->
-<button (click)="showUserPosts(user?.id)">Show User's Posts</button>
+<div id="user"><h2>id:{{user?.id}} -- {{user?.name}}</h2>
+  {{user | json}}
+  <!--{{user?.username}}-->
+  <!--{{user?.email}}-->
+  <!--{{user?.address | json}}-->
+  <!--{{user?.phone}}-->
+  <!--{{user?.website}}-->
+  <!--{{user?.company | json}}-->
+  <button (click)="showUserPosts(user?.id)">Show User's Posts</button>
+</div>
+
 <router-outlet></router-outlet>

@@ -10,6 +10,8 @@ import { UserComponent } from './components/user/user.component';
 import {PostsService} from './services/post/posts.service';
 import {ResolvePostsService} from './services/post/resolve-posts.service';
 import { PostsOfUserComponent } from './components/posts-of-user/posts-of-user.component';
+import {CommentService} from './services/comment/comment.service';
+import { CommentsOfPostComponent } from './components/comments-of-post/comments-of-post.component';
 
 const links: Routes = [
   {path: 'home', component: AppComponent},
@@ -22,7 +24,14 @@ const links: Routes = [
         path: ':userId',
         component: UserComponent,
         children: [
-          {path: 'posts', component: PostsOfUserComponent, resolve: {postsOfUser: ResolvePostsService}}
+          {
+            path: 'posts',
+            component: PostsOfUserComponent,
+            resolve: {postsOfUser: ResolvePostsService},
+            children: [
+              {path: ':id/comments', component: CommentsOfPostComponent}
+            ]
+          }
         ]
       }
     ]
@@ -35,7 +44,8 @@ const links: Routes = [
     AppComponent,
     AllUsersComponent,
     UserComponent,
-    PostsOfUserComponent
+    PostsOfUserComponent,
+    CommentsOfPostComponent
   ],
   imports: [
     BrowserModule,

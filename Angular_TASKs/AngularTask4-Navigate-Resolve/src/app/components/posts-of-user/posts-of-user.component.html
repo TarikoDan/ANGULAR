@@ -1,7 +1,13 @@
-<p>posts-of-user works!</p>
-<div *ngFor="let post of posts">
-  {{post.id}}
-  {{post.body}}
-  {{post.title}}
-  {{post.userId}}
+<div id="userContainer">
+  <div id="postsOfUser">
+    <div class="post" *ngFor="let post of posts">
+      <h3>Post: {{post.id}} - {{post.title}}</h3>
+      {{post.body}}
+      <h6>UserId: {{post.userId}}</h6>
+      <button (click)="showComments(post?.id)">Show Comments to this Post</button>
+    </div>
+  </div>
+  <div id="comments">
+    <router-outlet>there are Comments bellow</router-outlet>
+  </div>
 </div>
