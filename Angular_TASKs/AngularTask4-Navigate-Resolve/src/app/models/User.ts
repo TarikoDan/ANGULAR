@@ -5,4 +5,6 @@ export interface User {
   email: string;
   address: object;
   phone: number;
+  website: string;
+  company: object;
 }

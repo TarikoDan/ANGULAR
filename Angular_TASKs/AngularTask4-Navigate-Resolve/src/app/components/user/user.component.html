@@ -1,5 +1,10 @@
-<div class="userList">
-  <div class="user" *ngFor="let user of users">
-    {{user.id}}--{{user.name}}
-  </div>
-</div>
+<h2>id:{{user?.id}} -- {{user?.name}}</h2>
+{{user | json}}
+<!--{{user?.username}}-->
+<!--{{user?.email}}-->
+<!--{{user?.address | json}}-->
+<!--{{user?.phone}}-->
+<!--{{user?.website}}-->
+<!--{{user?.company | json}}-->
+<button (click)="showUserPosts(user?.id)">Show User's Posts</button>
+<router-outlet></router-outlet>

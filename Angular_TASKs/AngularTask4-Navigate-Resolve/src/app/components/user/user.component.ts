@@ -1,5 +1,5 @@
-import { Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {User} from '../../models/User';
 
 @Component({
@@ -8,9 +8,15 @@ import {User} from '../../models/User';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent {
-  users: User[];
-  constructor(private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.data.subscribe(value => this.users = value.users);
+  user: User;
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+    this.activatedRoute.params.subscribe(value => {
+      // this.user = history.state.currentUser;
+      this.user = this.router.getCurrentNavigation().extras.state.currentUser;
+    });
   }
 
+  showUserPosts(userId: number): void {
+    this.router.navigate(['users', userId, 'posts'], {state: {userId}});
+  }
 }

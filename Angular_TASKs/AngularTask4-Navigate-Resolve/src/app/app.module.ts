@@ -2,21 +2,40 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './components/app/app.component';
-import { UserComponent } from './components/user/user.component';
+import { AllUsersComponent } from './components/all-users/all-users.component';
 import {RouterModule, Routes} from '@angular/router';
 import {ResolveUserService} from './services/user/resolve-user.service';
 import {HttpClientModule} from '@angular/common/http';
+import { UserComponent } from './components/user/user.component';
+import {PostsService} from './services/post/posts.service';
+import {ResolvePostsService} from './services/post/resolve-posts.service';
+import { PostsOfUserComponent } from './components/posts-of-user/posts-of-user.component';
 
 const links: Routes = [
   {path: 'home', component: AppComponent},
-  {path: 'users', component: UserComponent, resolve: {users: ResolveUserService}},
-  {path: 'posts', component: UserComponent},
-  {path: 'comments', component: UserComponent},
+  {
+    path: 'users',
+    component: AllUsersComponent,
+    resolve: {users: ResolveUserService},
+    children: [
+      {
+        path: ':userId',
+        component: UserComponent,
+        children: [
+          {path: 'posts', component: PostsOfUserComponent, resolve: {postsOfUser: ResolvePostsService}}
+        ]
+      }
+    ]
+  },
+  {path: 'posts', component: AllUsersComponent},
+  {path: 'comments', component: AllUsersComponent},
 ];
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    AllUsersComponent,
+    UserComponent,
+    PostsOfUserComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,12 @@
+.userList {
+ display: flex;
+  background-color: #373737;
+  color: white;
+  border-radius: 5px;
+
+}
+.user {
+  flex: 1;
+  border: 1px solid white;
+  border-radius: 5px;
+}
