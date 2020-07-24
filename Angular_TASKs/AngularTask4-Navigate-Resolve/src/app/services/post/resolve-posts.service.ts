@@ -11,6 +11,7 @@ export class ResolvePostsService implements Resolve<Post[]>{
 
   constructor(private postsService: PostsService) { }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Post[]> | Promise<Post[]> | Post[] {
-    return this.postsService.getUserPosts(history.state.currentUser.id);
+    console.log(history.state.currentUser);
+    return history.state.currentUser ? this.postsService.getUserPosts(history.state.currentUser.id) : this.postsService.getAllPosts();
   }
 }

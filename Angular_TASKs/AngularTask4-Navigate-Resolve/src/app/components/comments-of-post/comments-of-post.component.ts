@@ -13,7 +13,10 @@ export class CommentsOfPostComponent {
   constructor(private  activatedRoute: ActivatedRoute, private commentService: CommentService) {
     this.activatedRoute.params.subscribe(value => {
       console.log(history.state);
-      return this.commentService.getPostComments(value.id).subscribe(res => this.comments = res);
+      // tslint:disable-next-line:max-line-length
+      return value.id
+        ? this.commentService.getPostComments(value.id).subscribe(res => this.comments = res)
+        : this.commentService.getAllComments().subscribe(com => this.comments = com);
     });
   }
 }

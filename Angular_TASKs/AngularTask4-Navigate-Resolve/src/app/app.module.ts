@@ -12,6 +12,8 @@ import {ResolvePostsService} from './services/post/resolve-posts.service';
 import { PostsOfUserComponent } from './components/posts-of-user/posts-of-user.component';
 import {CommentService} from './services/comment/comment.service';
 import { CommentsOfPostComponent } from './components/comments-of-post/comments-of-post.component';
+import { AllPostsComponent } from './components/all-posts/all-posts.component';
+import {PostsActivatorService} from './services/post/posts-activator.service';
 
 const links: Routes = [
   {path: 'home', component: AppComponent},
@@ -36,8 +38,13 @@ const links: Routes = [
       }
     ]
   },
-  {path: 'posts', component: AllUsersComponent},
-  {path: 'comments', component: AllUsersComponent},
+  {
+    path: 'posts',
+    component: AllPostsComponent,
+    resolve: {posts: ResolvePostsService},
+    canActivate: [PostsActivatorService]
+  },
+  {path: 'comments', component: CommentsOfPostComponent, canDeactivate: [CommentService]},
 ];
 @NgModule({
   declarations: [
@@ -45,7 +52,8 @@ const links: Routes = [
     AllUsersComponent,
     UserComponent,
     PostsOfUserComponent,
-    CommentsOfPostComponent
+    CommentsOfPostComponent,
+    AllPostsComponent
   ],
   imports: [
     BrowserModule,
