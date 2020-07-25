@@ -16,7 +16,7 @@ import { AllPostsComponent } from './components/all-posts/all-posts.component';
 import {PostsActivatorService} from './services/post/posts-activator.service';
 
 const links: Routes = [
-  {path: 'home', component: AppComponent},
+  {path: '', component: AppComponent},
   {
     path: 'users',
     component: AllUsersComponent,

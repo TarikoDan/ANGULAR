@@ -15,6 +15,6 @@ export class AppComponent {
   }
 
   home(): void {
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
   }
 }
