@@ -1,0 +1,16 @@
+h5 {
+  margin: 0;
+  padding: 0;
+}
+#users {
+  display: flex;
+}
+.user {
+  flex: 1;
+  margin: 0 5px;
+  padding: 5px;
+  background-color: #505b68;
+  border-radius: 5px;
+  border: 1px solid antiquewhite;
+  color: antiquewhite;
+}
