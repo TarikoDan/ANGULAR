@@ -1,0 +1,18 @@
+<div id="login">
+  <form #formLogin='ngForm' (ngSubmit)="logForm(formLogin)">
+    <input name="login" type="text" placeholder="LoginName" [(ngModel)]="user0.name" #n='ngModel' required><br>
+    <div>{{n.value?.length < 5 ? errors.less5 : ''}}{{n.value?.length > 10 ? errors.more10 : ''}}</div>
+    <input name="password" type="password" placeholder="password" [(ngModel)]="user0.password" #p='ngModel' required>
+    <button (mouseover)="visiblePass(p)"
+            (mouseleave)="unvisiblePass()">{{passValue ? passValue : 'show password'}}</button>
+    <br>
+    <button [disabled]="user3 || n.invalid || p.invalid" (click)="reg(n, p)">Register</button>
+    <br>
+    <span *ngIf="user3">The number of available registrations is exhausted</span>
+    <div>
+      <button (click)="log()">log In</button>
+      <h2 *ngIf="userX?.id !== 0">{{userX | json}}</h2>
+    </div>
+  </form>
+</div>
+

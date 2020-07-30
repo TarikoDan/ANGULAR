@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+button {
+  width: 100px;
+  margin: 5px;
+}
+button:disabled {
+  opacity: 0.1;
+}
+input {
+  margin: 5px;
+}

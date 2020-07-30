@@ -4,5 +4,28 @@
     <h5>{{user.name}}</h5>
   </div>
 </div>
-    <input type="number" [(ngModel)]="userId" (input)="xxx()">
-<router-outlet></router-outlet>
+<div id="filter">
+  <router-outlet></router-outlet>
+</div>
+<!--<input type="number" [(ngModel)]="userId" (input)="xxx()" #uId><br>-->
+<span>Filter Users by Id and Name below:</span>
+<form name="filterUsers" #fUsers='ngForm' (ngSubmit)="filterUsers()">
+  <select name="userId" [(ngModel)]="userId" #id='ngModel'>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
+  <input name="userName" type="text" [(ngModel)]="userName">
+  <button (click)="getInputValue(fUsers)">get value</button>
+  <br>
+</form>
+<div *ngFor="let fUser of filteredUsers">
+  {{fUser.id}} - {{fUser.name}}
+</div>

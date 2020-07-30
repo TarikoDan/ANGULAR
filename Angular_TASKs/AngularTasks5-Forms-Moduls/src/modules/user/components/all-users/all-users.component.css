@@ -5,6 +5,11 @@ h5 {
 #users {
   display: flex;
 }
+#filter {
+  border: 1px solid #505b68;
+  background-color: antiquewhite;
+  color: #505b68;
+}
 .user {
   flex: 1;
   margin: 0 5px;
@@ -14,3 +19,4 @@ h5 {
   border: 1px solid antiquewhite;
   color: antiquewhite;
 }
+

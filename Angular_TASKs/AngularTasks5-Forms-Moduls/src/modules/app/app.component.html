@@ -8,14 +8,13 @@
   <span>Welcome</span>
     <div class="spacer">
       <div class="card-container">
-        <button class="card"  routerLink="">HOME</button>
+        <button class="card"  routerLink="/home">HOME</button>
         <button class="card" routerLink="/users">USERS</button>
         <button class="card" [routerLink]="['posts']">POSTS</button>
         <button class="card">COMMENTS</button>
       </div>
     </div>
 </div>
-
 <div class="content" role="main">
   <router-outlet></router-outlet>
 </div>
