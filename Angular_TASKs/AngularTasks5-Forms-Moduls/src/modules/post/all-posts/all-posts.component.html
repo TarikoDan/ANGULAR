@@ -1,0 +1,6 @@
+<form > choose PostId to view Post content:
+  <select name="post" [(ngModel)]="postX" (click)="selectPost()">
+    <option *ngFor="let x of posts" >{{x.id}}</option>
+  </select>
+</form>
+<div>{{selectedPost | json}}</div>

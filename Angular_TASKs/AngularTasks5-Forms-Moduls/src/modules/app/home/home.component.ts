@@ -82,6 +82,6 @@ export class HomeComponent implements OnInit {
   }
 
   logForm(formLogin: NgForm): void {
-    console.log(formLogin);
+    console.log(formLogin.controls);
   }
 }
