@@ -32,7 +32,7 @@ export class AllUsersComponent implements OnInit {
 
   filterUsers(): void {
     const res = this.users.filter(user => {
-      return user.id === +this.userId || user.name.toLowerCase().includes(this.userName.toLowerCase());
+      return user.id === +this.userId || user.name.toLowerCase().includes(this.userName?.toLowerCase());
     }) as User[];
     this.filteredUsers = res;
   }

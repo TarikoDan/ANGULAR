@@ -6,6 +6,8 @@ import { AllUsersComponent } from './components/all-users/all-users.component';
 import {RouterModule, Routes} from '@angular/router';
 import { SingleUserComponent } from './components/single-user/single-user.component';
 import {FormsModule} from '@angular/forms';
+import { ObjectDeepnessPipe } from './services/object-deepness.pipe';
+import { ArrayLevelsPipe } from './services/array-levels.pipe';
 
 const  routes: Routes = [
   {
@@ -18,7 +20,7 @@ const  routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AllUsersComponent, SingleUserComponent],
+  declarations: [AllUsersComponent, SingleUserComponent, ObjectDeepnessPipe, ArrayLevelsPipe],
   imports: [
     CommonModule,
     HttpClientModule,

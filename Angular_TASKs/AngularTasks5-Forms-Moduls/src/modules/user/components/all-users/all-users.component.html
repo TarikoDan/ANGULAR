@@ -11,21 +11,33 @@
 <span>Filter Users by Id and Name below:</span>
 <form name="filterUsers" #fUsers='ngForm' (ngSubmit)="filterUsers()">
   <select name="userId" [(ngModel)]="userId" #id='ngModel'>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
+<!--    <option value="undefined" hidden>select UserId</option>-->
+    <option [ngValue]="undefined" hidden>select UserId</option>
+<!--    <option *ngFor="let item of [].constructor(10); let i = index" [value]="i+1">UserId:{{i+1}}</option>-->
+    <option *ngFor="let item of [].constructor(10); index as i" [value]="i+1">UserId:{{i+1}}</option>
+<!--    <option value="1">1</option>-->
+<!--    <option value="2">2</option>-->
+<!--    <option value="3">3</option>-->
+<!--    <option value="4">4</option>-->
+<!--    <option value="5">5</option>-->
+<!--    <option value="6">6</option>-->
+<!--    <option value="7">7</option>-->
+<!--    <option value="8">8</option>-->
+<!--    <option value="9">9</option>-->
+<!--    <option value="10">10</option>-->
+
   </select>
   <input name="userName" type="text" [(ngModel)]="userName">
   <button (click)="getInputValue(fUsers)">get value</button>
   <br>
 </form>
 <div *ngFor="let fUser of filteredUsers">
-  {{fUser.id}} - {{fUser.name}}
+  {{fUser.id}} - {{fUser.name}}<br>
+  {{fUser | json}}<br>
+  {{fUser | objectDeepness: 0 | json}}<br>
+  {{fUser | objectDeepness: 1 | json}}<br>
+  {{fUser | objectDeepness: 2 | json}}<br>
+  {{fUser | objectDeepness: 3 | json}}<br>
+  {{fUser | objectDeepness: 4 | json}}<br>
+  <hr>
 </div>
