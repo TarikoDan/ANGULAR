@@ -1,0 +1,11 @@
+<form #formUser='ngForm' (ngSubmit)="getUser(formUser)">
+  <select name="user" [(ngModel)]="user">
+    <option [value]="undefined" hidden>select User</option>
+    <option *ngFor="let u of users; let i = index" [value]="u.username">{{i+1}}-{{u.username}}</option>
+  </select>
+  <button>getUser</button>
+</form>
+<div *ngFor="let user of users">
+  {{user | json}}
+  <hr>
+</div>

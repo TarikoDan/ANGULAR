@@ -1,0 +1,14 @@
+<div id="main_content">
+  <div>
+    <ul>
+      <li routerLink="/home">HOME</li>
+      <li [routerLink]="['users']">USERS</li>
+      <li (click)="goCounter()">COUNTER</li>
+    </ul>
+  </div>
+  <div id="basket">
+    Basket: <span class="number">{{dataService.state.getValue().counter}}</span>
+    User: <span class="number">{{dataService.state.getValue().username}}</span>
+  </div>
+</div>
+<router-outlet></router-outlet>
