@@ -19,7 +19,7 @@ export class AppComponent {
   constructor(private http: HttpClient) {
     this.http.get<any[]>('https://jsonplaceholder.typicode.com/users')
       .subscribe(response => this.users = response);
-    this.http.get('https://jsonplaceholder.typicode.com/posts/?_limit=10')
+    this.http.get<any[]>('https://jsonplaceholder.typicode.com/posts/?_limit=10')
       .subscribe(resp => this.posts = resp);
     // this.http.get('https://jsonplaceholder.typicode.com/comments/?_limit=10')
     //   .subscribe(resp => this.comments = resp);
