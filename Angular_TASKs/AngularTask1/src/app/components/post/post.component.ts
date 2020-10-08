@@ -12,7 +12,7 @@ export class PostComponent implements OnInit {
   comments: any[];
 
   constructor(private  http: HttpClient) {
-    this.http.get('https://jsonplaceholder.typicode.com/comments/?_limit=10')
+    this.http.get<any[]>('https://jsonplaceholder.typicode.com/comments/?_limit=10')
       .subscribe(resp => this.comments = resp);
   }
 
